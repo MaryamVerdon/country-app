@@ -1,5 +1,7 @@
 const content = document.querySelector(".countries-container");
+const btnSort = document.querySelectorAll(".btnSort");
 let countries = [];
+let sortMethod = "maxToMin";
 const fetchCountries = async () => {
   await fetch("https://restcountries.com/v3.1/all")
     .then((res) => res.json())
@@ -15,6 +17,17 @@ const displayCountry = () => {
         .toLowerCase()
         .includes(inputSearch.value.toLowerCase())
     )
+    .sort((a, b) => {
+      if (sortMethod === "maxToMin") {
+        return a.population - b.population;
+      } else if (sortMethod === "minToMax") {
+        return b.population - a.population;
+      } else if (sortMethod === "alpha") {
+        return a.translations.fra.common.localeCompare(
+          b.translations.fra.common
+        );
+      }
+    })
     .slice(0, inputRange.value)
     .map((country) => {
       return `
@@ -36,4 +49,11 @@ inputSearch.addEventListener("input", displayCountry);
 inputRange.addEventListener("input", () => {
   displayCountry();
   rangeValue.textContent = inputRange.value;
+});
+
+btnSort.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    sortMethod = e.target.id;
+    displayCountry();
+  });
 });
