@@ -8,9 +8,14 @@ const fetchCountries = async () => {
   displayCountry();
 };
 
-// 4 - Créer une fonction d'affichage, et paramétrer l'affichage des cartes de chaque pays grace à la méthode MAP
 const displayCountry = () => {
   content.innerHTML = countries
+    .filter((country) =>
+      country.translations.fra.common
+        .toLowerCase()
+        .includes(inputSearch.value.toLowerCase())
+    )
+    .slice(0, inputRange.value)
     .map((country) => {
       return `
             <div class="card">
@@ -27,3 +32,8 @@ const displayCountry = () => {
 };
 
 window.addEventListener("load", fetchCountries);
+inputSearch.addEventListener("input", displayCountry);
+inputRange.addEventListener("input", () => {
+  displayCountry();
+  rangeValue.textContent = inputRange.value;
+});
