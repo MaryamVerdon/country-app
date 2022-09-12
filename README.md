@@ -8,12 +8,15 @@ Technologies utilisées : `HTML5` , `CSS3` , `JavaScript`
 
 ### Fonctionnalitées 
 
-Vous avez la possibilité de trier les pays :
+L'utilisateur à la possibilité de trier les pays :
 
   - Tri par ordre alphabétique.
   - Tri en fonction de la population (ordre croissant/décroissant).
-L'utilisateur peut choisir le(s) pays à afficher.
+  
+L'utilisateur peut choisir le(s) pays à afficher :
+
   - Barre de recherche 
+  
 L'utilisateur peut choisir le nombre de pays à afficher sur la page (0 à 250).
 
 
