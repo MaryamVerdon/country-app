@@ -2,7 +2,7 @@
 
 Cette application permet d'afficher une liste de 250 pays. Cet affichage comprends le nom du pays, le drapeau du pays , la capital du pays ainsi que la population du pays. 
 
-### API :  [L'API Countries](https://restcountries.com/v3.1/all)
+API :  [L'API Countries](https://restcountries.com/v3.1/all)
 
 Technologies utilisées : `HTML5` , `CSS3` , `JavaScript`
 
